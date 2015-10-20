@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Enabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Enabled</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Field_API_Name__c</fullName>
+        <label>Field API Name</label>
+        <length>18</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Field_Label__c</fullName>
+        <label>Field Label</label>
+        <length>18</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Mapping_UUID__c</fullName>
+        <externalId>true</externalId>
+        <label>Mapping UUID</label>
+        <length>50</length>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Object_Label__c</fullName>
+        <label>Object Label</label>
+        <length>18</length>
+        <type>Text</type>
+    </fields>
+    <label>Mapping Object</label>
+    <nameField>
+        <label>Object Type</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Mapping Objects</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

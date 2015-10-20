@@ -1,0 +1,36 @@
+<apex:page controller="JNOauthController" action="{!checkTokenRequest}">
+<apex:sectionHeader title="Jifflenow Config" subtitle="Config Settings for Jifflenow"/>
+<apex:pageMessages escape="false" />
+<apex:form >
+<apex:pageBlock title="Jifflenow Configuration"> 
+
+     <apex:pageBlockSection columns="1" rendered="{!disReadOnly}">
+         <apex:outputtext value="{!jnSettings.JNClient_ID__c}" label="Client ID" style="width:500px" />
+         <apex:outputtext value="{!jnSettings.JNClient_Secret__c}" label="Client Secret" style="width:500px" />
+         <apex:outputtext value="{!jnSettings.JNUser_ID__c}" label="User ID" style="width:500px" />
+         <apex:outputtext value="{!jnSettings.JNEndpoint_URL__c}" label="API URL" style="width:500px" />
+         <apex:outputtext value="{!jnSettings.JNoAuthEndpoint_URL__c}" label="Authorization URL" style="width:500px" />
+         <apex:outputtext value="{!jnSettings.JNRedirect_URL__c}" label="SFDC Redirect URL" style="width:500px" />
+         <apex:outputtext value="{!jnSettings.JNAdmin_Test_email__c}" label="Admin Test eMail" style="width:500px" />         
+     </apex:pageBlockSection>
+
+      <apex:pageBlockSection columns="1" rendered="{!!disReadOnly}">
+      <apex:inputtext value="{!jnSettings.JNClient_ID__c}" label="Client ID" style="width:500px" required="true"/>
+         <apex:inputtext value="{!jnSettings.JNClient_Secret__c}" label="Client Secret" style="width:500px" required="true"/>
+         <apex:inputtext value="{!jnSettings.JNUser_ID__c}" label="User ID" style="width:500px" required="true"/>
+         <apex:inputtext value="{!jnSettings.JNEndpoint_URL__c}" label="API URL" style="width:500px" required="true"/>
+         <apex:inputtext value="{!jnSettings.JNoAuthEndpoint_URL__c}" label="Authorization URL" style="width:500px" required="true"  title="External URL used for Jifflenow authorization."/>
+         <apex:inputtext value="{!jnSettings.JNRedirect_URL__c}" label="SFDC Redirect URL" style="width:500px" required="true"/>
+         <apex:inputtext value="{!jnSettings.JNAdmin_Test_email__c}" label="Admin Test eMail" style="width:500px" title="Test email Id provided by Jifflenow"/>         
+     </apex:pageBlockSection>
+     <apex:pageBlockButtons >
+        <apex:commandButton value="Configure" action="{!chgToedit}" rendered="{!disReadOnly}"/>
+        <apex:commandButton value="Save & Authorize" action="{!initAuth}" rendered="{!!disReadOnly}"/> 
+        <!-- <apex:commandButton value="Save & Authorize" action="{!initAuth}" rendered="{!($ObjectType.JNSettings__c.updateable)&&(disReadOnly!=true)}"/> -->
+        <apex:commandButton value="Cancel" action="{!doCancel}" rendered="{!!disReadOnly}"/>
+     </apex:pageBlockButtons>    
+</apex:pageBlock> 
+
+
+</apex:form> 
+</apex:page>

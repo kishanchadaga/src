@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to store association of Attendees to a meeting.</description>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Attendee_Name__c</fullName>
+        <formula>HYPERLINK(&quot;/&quot; + Id ,  Attendee__r.Attendee_First_Name__c  +  Attendee__r.Attendee_Last_Name__c ,&quot;_blank&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Attendee Name</label>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Attendee_Status__c</fullName>
+        <label>Attendee Status</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Attendee__c</fullName>
+        <label>Attendee</label>
+        <referenceTo>Attendee__c</referenceTo>
+        <relationshipLabel>Invites</relationshipLabel>
+        <relationshipName>Invites</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <label>Comments</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Company__c</fullName>
+        <formula>Attendee__r.Company__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Company</label>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Sync__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Contact Sync</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Type__c</fullName>
+        <label>Contact Type</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Invites</relationshipLabel>
+        <relationshipName>Invites</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Is_Meeting_Requestor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Is Meeting Requestor?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Objective__c</fullName>
+        <label>Meeting Objective</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Meeting__c</fullName>
+        <label>Meeting</label>
+        <referenceTo>Meeting__c</referenceTo>
+        <relationshipLabel>Invites</relationshipLabel>
+        <relationshipName>Invites</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Unique_ID__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
+        <label>Unique ID</label>
+        <length>50</length>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>Invite</label>
+    <nameField>
+        <displayFormat>ATT-{000000}</displayFormat>
+        <label>Invite Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Invites</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Attendee__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Attendee__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Meeting__c</lookupPhoneDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

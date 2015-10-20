@@ -1,0 +1,62 @@
+<apex:page controller="JNMappings" action="{!ObjNames}"  tabStyle="JiffleNow_Mappings__tab" >
+    <apex:sectionHeader title="Field Mapping" subtitle="Field Mapping"/>
+    <apex:pageMessages id="msgs"/>
+    <apex:form >
+        <apex:pageBlock title="Mappings">
+         <apex:pageBlockButtons location="top">
+            <apex:commandButton value="Save" action="{!justSave}"/>
+            <apex:commandButton value="Save & New" action="{!saveAndNew}"/>
+            <apex:commandButton value="Cancel" action="{!doCancel}"/>
+        </apex:pageBlockButtons> 
+            <table width="75%" border="0">
+                <tr>
+                    <th colspan="1" align="center" ><b>Objects</b></th>
+                    <th colspan="1" align="center" ><b>Fields</b></th>
+                    <!-- <th colspan="1" align="center" ><b>Field Type</b></th> --> 
+                </tr>
+                <tr>
+                    <td width="25%">
+                        <apex:actionregion >
+                        <apex:selectList value="{!selectedObject}" size="1" style="width:175px">
+                            <apex:selectOptions value="{!ObjectNames}"/>
+                            <apex:actionSupport event="onchange" rerender="thetable,msgs" action="{!populateTable}"/>
+                        </apex:selectList>
+                        </apex:actionregion>
+                    </td>
+                    <td colspan="2" width="100%">
+                        <apex:outputpanel id="thetable">
+                        <apex:actionregion >
+                            <table width="100%" border="0">
+                            <!-- <apex:outputpanel id="thetable"> -->
+                                <apex:repeat value="{!wraplst}" var="wr">
+                                    <tr>
+                                        <td width="25%" style="font-size: 8pt;"> 
+                                        
+                                            <apex:selectList size="1" value="{!wr.selectedField}" style="width:175px"> 
+                                                <apex:selectOptions value="{!wr.fieldName}"></apex:selectOptions>
+                                                <apex:actionSupport event="onchange" rerender="outext,msgs" action="{!fieldstype}"/>
+                                            </apex:selectList>
+                                        
+                                        </td>
+                                       	<td width="25%">
+                                            <apex:inputText value="{!ret}" id="outext" alt="Data Type" disabled="true"/> 
+                                        </td>
+                                        <td width="25%"></td>
+                                       <!--  <td width="25%"></td> -->
+                                            
+                                    </tr>
+                                </apex:repeat>
+                            <!-- </apex:outputpanel> -->
+                                
+                            </table>
+                        </apex:actionregion>
+                    </apex:outputpanel>
+                    </td>
+                    <!-- <td>
+	                	<apex:inputText value="{!ret}" id="outext" disabled="true"/> 
+	              	</td> -->
+                </tr>
+            </table>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

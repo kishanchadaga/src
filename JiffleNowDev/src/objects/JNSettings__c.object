@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Stores the JN User Authorization details</description>
+    <fields>
+        <fullName>JNAccess_Token__c</fullName>
+        <inlineHelpText>JN Access Token</inlineHelpText>
+        <label>JNAccess_Token</label>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>JNAdmin_Test_email__c</fullName>
+        <description>email id used for system administrator to test jifflenow configuration</description>
+        <inlineHelpText>Email id for SFDC Administrator to test jifflenow integration.</inlineHelpText>
+        <label>Admin Test eMail</label>
+        <type>Email</type>
+    </fields>
+    <fields>
+        <fullName>JNClient_ID__c</fullName>
+        <description>JN Client ID</description>
+        <inlineHelpText>JN Client ID</inlineHelpText>
+        <label>JNClient_ID</label>
+        <length>200</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>JNClient_Secret__c</fullName>
+        <inlineHelpText>JN Client Secret</inlineHelpText>
+        <label>JNClient_Secret</label>
+        <length>200</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>JNCryptoKey__c</fullName>
+        <label>JNCryptoKey</label>
+        <length>200</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>JNEndpoint_URL__c</fullName>
+        <description>JN Endpoint URL</description>
+        <inlineHelpText>Enter the JN Endpoint URL</inlineHelpText>
+        <label>JNEndpoint_URL</label>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>JNRedirect_URL__c</fullName>
+        <description>JN Redirect URL</description>
+        <inlineHelpText>JN Redirect URL</inlineHelpText>
+        <label>JNRedirect_URL</label>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>JNRefresh_Token__c</fullName>
+        <description>JN Refresh Token</description>
+        <inlineHelpText>JN Refresh Token</inlineHelpText>
+        <label>JNRefresh_Token</label>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>JNUser_ID__c</fullName>
+        <inlineHelpText>JN User ID</inlineHelpText>
+        <label>JNUser_ID</label>
+        <length>200</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>JNoAuthEndpoint_URL__c</fullName>
+        <description>Used for oAuth authorization url.</description>
+        <inlineHelpText>Used for oAuth authorization url.</inlineHelpText>
+        <label>JNoAuthEndpoint_URL</label>
+        <type>Url</type>
+    </fields>
+    <label>JNSettings</label>
+</CustomObject>

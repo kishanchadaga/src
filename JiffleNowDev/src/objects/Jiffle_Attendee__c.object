@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Additional_info__c</fullName>
+        <label>Additional info</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Attendee_Email__c</fullName>
+        <label>Attendee Email</label>
+        <type>Email</type>
+    </fields>
+    <fields>
+        <fullName>Attendee_First_Name__c</fullName>
+        <label>Attendee First Name</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Attendee_Last_Name__c</fullName>
+        <label>Attendee Last Name</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Attendee_Status__c</fullName>
+        <label>Attendee Status</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <label>Comments</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Company__c</fullName>
+        <label>Company</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Sync__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Contact Sync</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Type__c</fullName>
+        <label>Contact Type</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Jiffle Attendees</relationshipLabel>
+        <relationshipName>Jiffle_Attendees</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <label>Country</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Is_Meeting_Host__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Is Meeting Host ?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Meeting_Requestor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Is Meeting Requestor ?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_NDA_On_File__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>Is NDA On File ?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Jiffle_Meeting__c</fullName>
+        <label>Jiffle Meeting</label>
+        <referenceTo>Jiffle_Meeting__c</referenceTo>
+        <relationshipLabel>Jiffle Attendees</relationshipLabel>
+        <relationshipName>Jiffle_Attendees</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Host_Email__c</fullName>
+        <label>Meeting Host Email</label>
+        <type>Email</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Host__c</fullName>
+        <label>Meeting Host</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Objective__c</fullName>
+        <label>Meeting Objective</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Mobile__c</fullName>
+        <label>Mobile</label>
+        <length>20</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Account__c</fullName>
+        <label>Primary Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Jiffle Attendees</relationshipLabel>
+        <relationshipName>Jiffle_Attendees</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Requestor_Email__c</fullName>
+        <label>Requestor Email</label>
+        <type>Email</type>
+    </fields>
+    <fields>
+        <fullName>Requestor__c</fullName>
+        <label>Requestor</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>SFDC_Source__c</fullName>
+        <defaultValue>false</defaultValue>
+        <label>SFDC Source ?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <label>Title</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <label>Jiffle Attendee</label>
+    <nameField>
+        <displayFormat>JA-{0000}</displayFormat>
+        <label>Jiffle Attendee Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Jiffle Attendees</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

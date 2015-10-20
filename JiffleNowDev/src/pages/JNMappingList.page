@@ -1,0 +1,107 @@
+<apex:page controller="JNMappingList"  sidebar="false" tabStyle="JiffleNow_Mappings__tab" >
+<style>
+/*    body .bRelatedList .pbTitle h3, body .bPageBlock .pbTitle h2, body .bPageBlock .pbTitle h3, body .bSubBlock h3.lbHeader {
+    color: #B11818;
+    font-size: 1.3em;
+    }*/
+    .pg.gradient {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f8f8f8), to(#e9e9e9));
+    background: -moz-linear-gradient(0% 0% 270deg,#f8f8f8, #e9e9e9);
+    }
+    .labelclass {
+    
+     color: #B11818;
+     font-weight: bold;
+    }
+    .lnk {
+    color: #015ba7!important;
+    font-weight: bold;
+    }
+    .lblstyle{
+    color: #B11818;
+    font-size: 1.2em;
+    padding-left:30px;
+    }
+</style>
+    <apex:form >
+        <!-- <apex:sectionHeader title="Manage Mappings" /> -->
+        <apex:outputPanel id="OOpnl">         
+        <apex:outputPanel rendered="{!disflg}">
+            <html>
+                <body>
+                    <tr>
+                        <td class="lblstyle">
+                            <apex:outputLabel >{!$Label.JNCreateMappingMsg}</apex:outputLabel>
+                            &nbsp;<apex:commandButton value="Create Mapping" action="{!Redirect}" />
+                       </td>
+                    </tr>
+                </body>
+            </html>
+        </apex:outputPanel>
+        </apex:outputPanel>
+        <apex:outputPanel id="OOpnl1"> 
+        <apex:outputPanel rendered="{!!disflg}" id="outpnl"> 
+            <apex:pageBlock id="pb" title="Manage Mappings">
+                <apex:pageBlockButtons location="Top">
+                    <apex:commandButton value="Add Mapping" action="{!Redirect}" />
+                    <apex:commandButton value="Send to Jifflenow" action="{!JNSend}"/>
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection title="List of Objects & Fields"/>
+                <apex:pageBlockTable value="{!Mappings}" var="m">
+                    <apex:column headerValue="Action">
+                        <apex:commandLink value="Enable" styleClass="lnk"  action="{!EnableRecord}" rendered="{!m.Enabled__c!=true && NOT( ISBLANK(m.Mapping_UUID__c))}" rerender="pb">
+                            <apex:inputHidden value="{!m.id}"/>
+                            <apex:param name="abc" value="{!m.id}" assignTo="{!EnableId}"/>
+                        </apex:commandLink>
+                        <apex:outputText value="Enable" rendered="{!m.Enabled__c==true || ISBLANK(m.Mapping_UUID__c)}" />
+                        
+                        <apex:outputLabel styleClass="labelclass">|</apex:outputLabel>&nbsp;
+                        <apex:commandLink value="Disable" styleClass="lnk" action="{!DisableRecord}" rendered="{!m.Enabled__c==true && NOT( ISBLANK(m.Mapping_UUID__c))}" rerender="pb">
+                            <apex:inputHidden value="{!m.id}"/>
+                            <apex:param name="abc" value="{!m.id}" assignTo="{!EnableId}"/>
+                        </apex:commandLink>
+                        <apex:outputText value="Disable" rendered="{!m.Enabled__c!=true || ISBLANK(m.Mapping_UUID__c)}" />
+                        
+                        <apex:outputLabel styleClass="labelclass">|</apex:outputLabel>&nbsp;
+                        <apex:commandLink value="Del" styleClass="lnk" action="{!DeleteRecord}" rendered="{!ISBLANK(m.Mapping_UUID__c)}" rerender="pb">
+                            <apex:inputHidden value="{!m.id}"/>
+                            <apex:param name="abc" value="{!m.id}" assignTo="{!EnableId}"/>
+                        </apex:commandLink>
+                        <apex:outputText value="Del" rendered="{!NOT(ISBLANK(m.Mapping_UUID__c))}" />
+                    </apex:column>
+                    <apex:column value="{!m.Object_Label__c}"/>
+                    <apex:column value="{!m.Object_API_Name__c}"/>
+                    <apex:column value="{!m.Field_Label__c}"/>
+                    <apex:column value="{!m.Field_API_Name__c}"/>
+                    <apex:column value="{!m.Field_Type__c}"/>
+                    <apex:column value="{!m.Mapping_UUID__c}"/>
+                    <apex:column value="{!m.Enabled__c}"/>
+                </apex:pageBlockTable>
+                <apex:outputpanel id="oop">
+                <table width="100%">
+                    <tr>
+                        <td width="82%"></td>
+                        <td width="18%">
+                        
+                            <apex:panelGrid columns="7" styleClass="pg gradient">
+                                <apex:commandButton status="fetchStatus" reRender="pb" value="|<" action="{!first}" disabled="{!!hasPrevious}" title="First Page"/>
+                                <apex:commandButton status="fetchStatus" reRender="pb" value="<" action="{!previous}" disabled="{!!hasPrevious}" title="Previous Page"/>
+                                <apex:commandButton status="fetchStatus" reRender="pb" value=">" action="{!next}" disabled="{!!hasNext}" title="Next Page"/>
+                                <apex:commandButton status="fetchStatus" reRender="pb" value=">|" action="{!last}" disabled="{!!hasNext}" title="Last Page"/>
+                                <apex:outputText >{!(pageNumber * size)+1-size}-{!IF((pageNumber * size)>noOfRecords, noOfRecords,(pageNumber * size))} of {!noOfRecords}</apex:outputText>
+                                <apex:outputPanel style="color:#4AA02C;font-weight:bold">
+                                    <apex:actionStatus id="fetchStatus" startText="Fetching..." stopText=""/>
+                                </apex:outputPanel>
+                            </apex:panelGrid>
+                           
+                        </td>
+                    </tr>
+                </table>
+                </apex:outputpanel>
+            </apex:pageBlock>
+          </apex:outputpanel>
+         </apex:outputPanel>
+        <apex:pageMessages /> 
+               
+    </apex:form>
+</apex:page>

@@ -1,0 +1,152 @@
+<apex:page Controller="JNEventMeetingList" standardStylesheets="false" showHeader="true" sidebar="false" tabStyle="Jifflenow_Meetings__tab">
+        <link rel="stylesheet" href="{!URLFOR($Resource.JNResources, 'JNResources/application.css')}"/>
+    <!--<apex:form>   -->
+        <html lang="en">
+ <div id="sf-jiffle-now">        
+ <div class="meeting-page">
+                <nav class="navbar navbar-light" role="navigation">
+                    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#user_manage">
+                              <span class="sr-only" data-i18n="toggle_navigation">toggle_navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                            </button>
+                            <div class="navbar-brand meeting_count" data-i18n="total">Total: 581</div>
+                        </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="user_manage">
+                            <ul class="nav navbar-nav navbar-right navbar-icon">
+                                <li class="dropdown filter-dropdown">
+                                    <a href="#" class="dropdown-toggle" id="filter_toggle">
+                                      <span class="icons-md-filter"></span><div data-i18n="filter">Filter</div>
+                                    </a>
+                                    <div class="dropdown-menu filter_panel" id="filter">
+                                        <div class="form-group-search">
+                                            <div class="row">
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="filter_search"></input>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span data-i18n="filter_by">Filter by</span>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-12"><h5 data-i18n="date_header">Date</h5></div>
+                                                <div class="col-sm-5 col-sm-offset-2">
+                                                    <div class="from-group date-range-group">
+                                                        <label data-i18n="from_date">From</label>
+                                                        <input type="text" class="form-control filter_tb" id="filter_start_date"></input>
+                                                    </div>
+                                                </div>
+                                            <div class="col-sm-5">
+                                                <div class="from-group date-range-group">
+                                                    <label data-i18n="to_date">To</label>
+                                                    <input type="text" class="form-control filter_tb" id="filter_end_date"></input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-12"><h5 data-i18n="meeting_status">Meeting Status</h5></div>
+                                            <div class="col-sm-5 col-sm-offset-2">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="meeting-type-approved" class="filter_cb" data-type="types" data-value="approved"></input>
+                                                    <label for="meeting-type-approved" data-i18n="approved">Approved</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="meeting-type-pending" class="filter_cb" data-type="types" data-value="pending"></input>
+                                                    <label for="meeting-type-pending" data-i18n="pending">Pending</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-5  col-sm-offset-2">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="meeting-type-decline" class="filter_cb" data-type="types" data-value="cancelled"></input>
+                                                    <label for="meeting-type-decline" data-i18n="cancelled">Cancelled</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-left">
+                                      <a href="#" class="cancel pull-left" id="reset_filter" data-i18n="reset">Reset</a>
+                                      <button class="btn btn-blue pull-right" id="apply_filter" data-i18n="apply_filter">Apply Filter</button>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li>
+                                <ul class="toggle-menu-list event-menu-list list-unstlyed list-inline" data-toggle-store="meeting-list">
+                                  <li>
+                                    <a href="#" class="toggle-btn" id="icon-grid-view" data-switch-type="grid">
+                                      <span class="icon icon-tile"></span>
+                                      <label data-i18n="tile_view">Tile</label>
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="#" class="toggle-btn" id="icon-list-view" data-switch-type="list">
+                                      <span class="icon icon-list"></span>
+                                      <label data-i18n="list_view">List</label>
+                                    </a>
+                                  </li>
+                                </ul>
+                            </li>
+                            <li><a href="#" id="export">
+                                <span class="icons-md-export"></span>
+                                <div data-i18n="export">Export</div>
+                            </a></li>
+                         </ul>
+                        <form class="navbar-form navbar-right navbar-search" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="global_filter"></input>
+                            </div>
+                        </form>
+                        <ul class="nav navbar-nav navbar-right navbar-applied-filter" id="applied_filters_list"></ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav> 
+  <div class="page-pad-top">
+    <div class="container" id="meeting_list">
+    </div>
+  </div>
+</div>
+<div id="cover" style="display: none;">
+  <div class="loaders">
+    <div id="circularG">
+      <div id="circularG_1" class="circularG">
+      </div>
+      <div id="circularG_2" class="circularG">
+      </div>
+      <div id="circularG_3" class="circularG">
+      </div>
+      <div id="circularG_4" class="circularG">
+      </div>
+      <div id="circularG_5" class="circularG">
+      </div>
+      <div id="circularG_6" class="circularG">
+      </div>
+      <div id="circularG_7" class="circularG">
+      </div>
+      <div id="circularG_8" class="circularG">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script language="javascript" type="text/javascript" src="{!URLFOR($Resource.JNResources, 'JNResources/application.js')}"></script>        
+<script language="javascript" type="text/javascript" src="{!URLFOR($Resource.JNMeeting)}"></script>
+<!--<script language="javascript" type="text/javascript" src="{!URLFOR($Resource.JSLibs, 'JSLibs/vendor.app.js')}"></script>-->
+<!--<script language="javascript" type="text/javascript" src="https://c.ap2.visual.force.com/resource/1440157692000/JNResources/JNResources/application.js"></script>
+<script language="javascript" type="text/javascript" src="https://c.ap2.visual.force.com/resource/1440409931000/JNMeeting"></script>-->
+
+</html><!--</apex:form>-->
+
+</apex:page>

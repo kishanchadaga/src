@@ -1,0 +1,13 @@
+<apex:page controller="ObjectRetrieve">
+	<apex:form >
+		<apex:actionFunction name="getlstrequiredfields" action="{!lstfields}"/> 
+		<apex:outputlabel value="All Objects"/>&nbsp;&nbsp;
+		<apex:selectList size="1" value="{!obj}" onChange="getlstrequiredfields()">
+		<apex:selectoptions value="{!objnames}"></apex:selectoptions>
+		</apex:selectList>
+		<apex:outputlabel value="Fields"/>&nbsp;&nbsp;
+		<apex:selectList size="1">
+		<apex:selectoptions value="{!options}"></apex:selectoptions> 
+		</apex:selectList>
+	</apex:form>
+</apex:page>

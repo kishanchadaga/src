@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to store JiffleMeetings / activities.</description>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Additional_Info__c</fullName>
+        <label>Additional Info</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>End_Date_Time__c</fullName>
+        <label>End Date/Time</label>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Event__c</fullName>
+        <label>Event</label>
+        <referenceTo>Event__c</referenceTo>
+        <relationshipLabel>Meetings</relationshipLabel>
+        <relationshipName>Jiffle_Meetings_Sessions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_ID__c</fullName>
+        <label>Meeting ID</label>
+        <length>50</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Location__c</fullName>
+        <label>Meeting Location</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Type__c</fullName>
+        <label>Meeting Type</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_UUID__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
+        <label>Meeting UUID</label>
+        <length>50</length>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_with__c</fullName>
+        <label>Meeting with</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Request_Status__c</fullName>
+        <label>Request Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Start_Date_Time__c</fullName>
+        <label>Start Date/Time</label>
+        <type>DateTime</type>
+    </fields>
+    <label>Meeting</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>MT-{00000}</displayFormat>
+        <label>Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Meetings</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Meeting_ID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Event__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Meeting_Location__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Meeting_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Start_Date_Time__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_ID__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Event__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_with__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Start_Date_Time__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_ID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Event__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_Location__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Start_Date_Time__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

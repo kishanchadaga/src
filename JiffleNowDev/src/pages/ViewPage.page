@@ -1,0 +1,41 @@
+<apex:page controller="Pagination" sidebar="false"  tabStyle="JiffleNow_Mappings__tab"  >
+<style>
+body .bRelatedList .pbTitle h3, body .bPageBlock .pbTitle h2, body .bPageBlock .pbTitle h3, body .bSubBlock h3.lbHeader {
+    color: #B11818;
+    font-size: 1.3em;}
+</style>
+    <apex:form >
+        <apex:pageBlock id="pb" title="Sfdc2Jifflenow Mappings">
+            
+            <apex:pageBlockButtons location="Top">
+                <apex:commandButton value="Update Mapping" action="{!Redirect}" />
+            </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Mapped List"/>
+            <apex:pageBlockTable value="{!MappingObjects}" var="m">
+                <apex:column value="{!m.Name}"/>
+                <!--<apex:column value="{!m.Object_Label__c}"/>-->
+                <apex:column value="{!m.Field_API_Name__c}"/>
+                <!--<apex:column value="{!m.Field_Label__c}"/>-->
+                <apex:column value="{!m.Enabled__c}"/>
+            </apex:pageBlockTable>
+            <table width="100%">
+            <tr>
+            <td width="82%"></td>
+            <td width="18%">
+            <apex:panelGrid columns="7">
+                <apex:commandButton status="fetchStatus" reRender="pb" value="|<" action="{!first}" disabled="{!!hasPrevious}" title="First Page"/>
+                <apex:commandButton status="fetchStatus" reRender="pb" value="<" action="{!previous}" disabled="{!!hasPrevious}" title="Previous Page"/>
+                <apex:commandButton status="fetchStatus" reRender="pb" value=">" action="{!next}" disabled="{!!hasNext}" title="Next Page"/>
+                <apex:commandButton status="fetchStatus" reRender="pb" value=">|" action="{!last}" disabled="{!!hasNext}" title="Last Page"/>
+                <apex:outputText >{!(pageNumber * size)+1-size}-{!IF((pageNumber * size)>noOfRecords, noOfRecords,(pageNumber * size))} of {!noOfRecords}</apex:outputText>
+           
+                <apex:outputPanel style="color:#4AA02C;font-weight:bold">
+                    <apex:actionStatus id="fetchStatus" startText="Fetching..." stopText=""/>
+                </apex:outputPanel>
+            </apex:panelGrid>
+            </td>
+            </tr>
+            </table>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
