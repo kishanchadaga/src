@@ -1,0 +1,74 @@
+<apex:page Controller="JNEventMeetingList" action="{!chkconfigsettings}" standardStylesheets="false" showHeader="true" sidebar="false" tabStyle="Jifflenow_Meetings__tab">
+    <link rel="stylesheet" href="{!URLFOR($Resource.JNResources, 'JNResources/application.css')}"/>
+        <!--<apex:form id="sf-jiffle-now" >-->
+        <html lang="en">
+        <div id="sf-jiffle-now">         
+       <apex:outputPanel id="Errorpanel" rendered="{!displayerror}"> 
+        <div class="modal-jiffle modal fade yellow show in">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Notification!</h4>
+                </div>
+                <div class="modal-body">{!$Label.JNConfigErrorMsg}</div>
+              </div>
+            </div>
+          </div>
+        </apex:outputPanel>
+        <apex:outputPanel id="Errorpanel1" rendered="{!!displayerror}"> 
+     
+            <div id="company-home" class="page-pad-top">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="dashboard-event-list">
+                      <div class="event-list-head">
+                        <div class="event-list-head-contnet">
+                          <h3 data-i18n="events">Events</h3>
+                        </div>
+                        <div class="event-list-menu-option">
+                          <div class="event-menu-content">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="event-list-content" id='event-list-content'>
+                        <div class="list-scroll" id='event-list'>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="cover" style="display: none;">
+              <div class="loaders">
+                <div id="circularG">
+                  <div id="circularG_1" class="circularG">
+                  </div>
+                  <div id="circularG_2" class="circularG">
+                  </div>
+                  <div id="circularG_3" class="circularG">
+                  </div>
+                  <div id="circularG_4" class="circularG">
+                  </div>
+                  <div id="circularG_5" class="circularG">
+                  </div>
+                  <div id="circularG_6" class="circularG">
+                  </div>
+                  <div id="circularG_7" class="circularG">
+                  </div>
+                  <div id="circularG_8" class="circularG">
+                  </div>
+                </div>
+              </div>
+            </div>
+       <!--  </div> -->         
+            <script language="javascript" type="text/javascript" src="{!URLFOR($Resource.JNResources, 'JNResources/application.js')}"></script>
+        <!-- <script language="javascript" type="text/javascript" src="{!URLFOR($Resource.JSLibs, 'JSLibs/vendor.app.js')}"></script>-->
+        <script language="javascript" type="text/javascript" src="{!URLFOR($Resource.JNEvent)}"></script>
+        </apex:outputPanel>
+        </div>
+        </html>
+    <!--</apex:form>-->
+
+</apex:page>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to store Jifflenow Attendees as a master table.</description>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Attendee_Email__c</fullName>
+        <label>Attendee Email</label>
+        <type>Email</type>
+    </fields>
+    <fields>
+        <fullName>Attendee_First_Name__c</fullName>
+        <label>Attendee First Name</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Attendee_Last_Name__c</fullName>
+        <label>Attendee Last Name</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Attendee_UUID__c</fullName>
+        <externalId>true</externalId>
+        <label>Attendee UUID</label>
+        <length>50</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Company__c</fullName>
+        <label>Company</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <label>Country</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Mobile__c</fullName>
+        <label>Mobile</label>
+        <length>20</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <label>Title</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <label>Attendee</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Attendee_First_Name__c</columns>
+        <columns>Attendee_Last_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>JA-{0000}</displayFormat>
+        <label>Attendee Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Attendees</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Attendee_First_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Attendee_Last_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Attendee_Email__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Attendee_First_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Attendee_Last_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Attendee_Email__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Attendee_First_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Attendee_Last_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Attendee_Email__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Attendee_First_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Attendee_Last_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Attendee_Email__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
